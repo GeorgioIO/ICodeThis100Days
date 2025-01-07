@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root
+{
+    /* COLORS */
+    --body-bgcolor : #E8F2EF;
+
+    --location-icon-color : #FFFFFF;
+    --availableseats-icon-color : #5C889D;
+    --bookedseats-icon-color : #DDE8E9;
+    --selectedseats-icon-color : #E64C83;
+
+    --movie-title-fontcolor : #FFFFFF;
+    --cinema-location-fontcolor : #FFFFFF;
+    
+
+    /* FONTS */
+    --general-font : "Fira Sans", serif;
+}
+
+html
+{
+    height: 100%;
+}
+
+
+
+body
+{
+    min-height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--body-bgcolor);
+    font-family: var(--general-font);
+}
+
+
+.container
+{
+    width: 350px;
+    height: auto;
+    background-color: lightblue;
+    border-radius: .75rem;
+    box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.37);
+}
+
+.container > .header
+{
+    width: 100%;
+    height: 150px;
+    background-color: rebeccapurple;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 15px 15px 8px 15px;
+    gap: 5px;
+}
+
+.header > h3
+{
+    font-size: 15px;
+    color: var(--movie-title-fontcolor);
+}
+
+.header > .location
+{
+    display: flex;
+    align-items: center;
+    gap: 2px;
+}
+
+.location > #locationIcon path
+{
+    fill: var(--location-icon-color);
+}
+
+.location > p
+{
+    font-size: 13px;
+    color: var(--cinema-location-fontcolor);
+}
+
+
+
+.container > .body
+{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 8px 15px 8px 15px;
+
+}
+
+.body > .seats-keys
+{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.seats-keys > .key
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+}
+
+.seats-keys > .key#available > svg
+{
+    fill: var(--availableseats-icon-color);
+}
+
+.seats-keys > .key#booked > svg
+{
+    fill: var(--bookedseats-icon-color);
+}
+
+.seats-keys > .key#selected > svg
+{
+    fill: var(--selectedseats-icon-color);
+}
+
+.body > .seats-container 
+{
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.seats-container > .row
+{
+    display: grid;
+    grid-template-columns: 0.3fr repeat(9 , 1fr);
+    width: 100%;
+    justify-items: center;
+    align-items: center;
+}
+
+.row > p
+{
+    font-size: 12px;
+    color: grey;
+}
+
+
+.screen-container
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3px;
+    width: 100%;
+    height: 100px;
+}
+
+
