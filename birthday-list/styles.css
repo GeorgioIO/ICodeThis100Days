@@ -1,0 +1,183 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+*
+{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root
+{
+    --body-bgcolor-left : #F087AF;
+    --body-bgcolor-right : #d8b79a;
+    --button-bgcolor : #FB6AAD;
+}
+
+@keyframes balloonRise {
+    0% {
+        transform: translateY(0);
+    }
+
+    20% {
+        transform: translateY(-100px);
+    }
+    
+    40% {
+        transform: translateY(-200px);
+    }
+
+    60% {
+        transform: translateY(-300px);
+    }
+
+
+    80% {
+        transform: translateY(-400px);
+    }
+
+    100%
+    {
+        transform: translateY(-700px);
+    }
+}
+
+body
+{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background :linear-gradient(to right , var(--body-bgcolor-left) , var(--body-bgcolor-right));
+    font-family: "Noto Sans", serif;
+    padding: 20px;
+}
+
+.birthday-list
+{
+    background-color: white;
+    width: 380px;
+    height: auto;
+    padding: 30px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 30px;
+    border-radius: .65rem;
+    box-shadow: 45px 45px 48px 14px #E06E9B;
+    overflow: hidden;
+}
+
+
+.birthday-list > .birthday-list__header
+{
+    padding: 10px;
+}
+
+.birthday-list > .birthday-list__header > h2
+{
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+.birthday-list__ul
+{
+    z-index: 1;
+}
+
+.birthday-list__ul > ul
+{
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.birthday-list__ul > ul > li
+{
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    z-index: 1;
+}
+
+li > .birthday-list__information h3
+{
+    font-weight: 600;
+    z-index: 1;
+}
+
+li > .birthday-list__information p
+{
+    font-weight: 400;
+    color: rgb(70, 70, 70);
+    z-index: 1;
+}
+
+
+.birthday-list__image
+{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    color: #FFFFFF;
+}
+
+
+.view-all-button
+{
+    width: 100%;
+    height: 50px;
+    box-shadow: 0px 5px 5px 0px #828282;
+    border-radius: .35rem;
+    transition: all ease-in-out 400ms;
+    z-index: 1;
+
+}
+
+.view-all-button > button 
+{
+    font-family: "Noto Sans", serif;
+    width: 100%;
+    height: 100%;
+    background-color: var(--button-bgcolor);
+    border-radius: inherit;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.view-all-button:hover
+{
+    transform: translateY(-4px);
+}
+
+.balloon {
+    position: absolute;
+    width: 50px !important;
+    height: 50px !important;  
+    animation: balloonRise linear infinite;
+    bottom: 0;
+    z-index: 0;
+}
+
+
+@media (max-width:430px) 
+{
+    .birthday-list > .birthday-list__header > h2
+    {
+        font-weight: 400;
+        font-size: 22px;
+    }
+}
