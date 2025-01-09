@@ -7,24 +7,37 @@
     box-sizing: border-box;
 }
 
+/* ANIMATIONS */
+
+
+
+/* VARIABLES */
 :root
 {
     /* COLORS */
     --body-bgcolor : #E8F2EF;
+    --container-bgcolor : #E8F2EF;
+    --screen-bgcolor : grey;
+    --footer-bgcolor : #EC417A;
+    
 
     --location-icon-color : #FFFFFF;
+    --seat-icon-color : #5C889D;
     --availableseats-icon-color : #5C889D;
-    --bookedseats-icon-color : #DDE8E9;
+    --bookedseats-icon-color : #b7e2e6;
     --selectedseats-icon-color : #E64C83;
 
     --movie-title-fontcolor : #FFFFFF;
     --cinema-location-fontcolor : #FFFFFF;
+    --footer-fontcolor : #FFFFFF;
     
 
     /* FONTS */
     --general-font : "Fira Sans", serif;
 }
 
+
+/* HTML + BODY */
 html
 {
     height: 100%;
@@ -36,34 +49,68 @@ body
 {
     min-height: 100%;
     display: flex;
+    position: relative;
     justify-content: center;
     align-items: center;
-    background-color: var(--body-bgcolor);
+    background: url("https://www.looper.com/img/gallery/the-ending-of-the-hobbit-an-unexpected-journey-explained/no-place-amongst-us-1660870600.webp");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* background-color: var(--body-bgcolor); */
     font-family: var(--general-font);
+    overflow: hidden;
+    padding: 10px;
 }
 
+body::before
+{
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.719);
+    position: absolute;
+    z-index: -1;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+/* STLYING */
 
 .container
 {
     width: 350px;
     height: auto;
-    background-color: lightblue;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
     border-radius: .75rem;
     box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.37);
+    border-radius: .85rem;
+    background-color: var(--container-bgcolor);
 }
 
 .container > .header
 {
     width: 100%;
-    height: 150px;
-    background-color: rebeccapurple;
+    height: 160px;
+    background : url("https://github.com/GeorgioIO/ICodeThisImages/blob/main/thehobbit.png?raw=true");
+    background-position: center;
+    background-size: cover;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     padding: 15px 15px 8px 15px;
     gap: 5px;
+    border-top-left-radius: .85rem;
+    border-top-right-radius: .85rem;
+    box-shadow: inset 0px 0px 30px 10px rgb(0, 0, 0);
 }
 
+.header > #playButton
+{
+    margin-bottom: auto;
+    cursor: pointer;
+}
 .header > h3
 {
     font-size: 15px;
@@ -88,8 +135,6 @@ body
     color: var(--cinema-location-fontcolor);
 }
 
-
-
 .container > .body
 {
     display: flex;
@@ -112,7 +157,10 @@ body
     justify-content: center;
     align-items: center;
     gap: 4px;
+    cursor: pointer;
 }
+
+
 
 .seats-keys > .key#available > svg
 {
@@ -142,6 +190,7 @@ body
     grid-template-columns: 0.3fr repeat(9 , 1fr);
     width: 100%;
     justify-items: center;
+    
     align-items: center;
 }
 
@@ -151,6 +200,33 @@ body
     color: grey;
 }
 
+.row > svg
+{
+    cursor: pointer;
+    fill: var(--seat-icon-color);
+    transition: all ease-in-out 400ms;
+}
+
+.row > svg:hover
+{
+    --seat-icon-color : #456574;
+}
+
+.row > svg.bookedseat 
+{
+    --seat-icon-color : var(--bookedseats-icon-color);
+    cursor:not-allowed;
+}
+
+.row > svg.availableseat
+{
+    --seat-icon-color : var(--availableseats-icon-color);
+}
+
+.row > svg.selectedseat
+{
+    --seat-icon-color : var(--selectedseats-icon-color);
+}
 
 .screen-container
 {
@@ -161,6 +237,85 @@ body
     gap: 3px;
     width: 100%;
     height: 100px;
+    position: relative;
+}
+
+.screen-container > p
+{
+    --font-color : grey;
+    color: var(--font-color);
+    transform: translateY(10px);
+}
+
+.screen-container > .curved-line 
+{
+    width: 100%;
+    height: 30px;
+    border-radius: 50%/20px;
+    border-bottom: 4px solid var(--screen-bgcolor);
+}
+
+.container > .footer
+{
+    background-color: var(--footer-bgcolor);
+    display: flex;
+    align-items: center;
+    color: var(--footer-fontcolor);
+    border-bottom-right-radius: .85rem;
+    border-bottom-left-radius: .85rem;
+
+}
+
+.footer > *
+{
+    padding: 8px 15px 15px 15px;
+}
+
+.footer > .footer-titles
+{
+    --bg-color : #DC3669;
+    background-color: var(--bg-color);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    border-bottom-left-radius: .85rem;
+}
+
+.footer > .footer-values
+{
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 }
 
 
+.footer > .footer-button
+{
+    width: 120px;
+    height: 70px;
+}
+
+.footer-button > button
+{
+    --outline : transparent;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: .65rem;
+    font-size: 16px;
+    cursor: pointer;
+    font-family: var(--general-font);
+    border: none;
+    outline: 2px solid var(--outline);
+    transition: all ease-in 400ms;
+}
+
+.footer-button:hover button
+{
+    --outline : black;
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.534);
+    
+}
