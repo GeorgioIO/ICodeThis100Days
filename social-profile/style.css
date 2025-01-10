@@ -1,0 +1,427 @@
+/* FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* GLOBAL RESET */
+*
+{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+/* VARIABLES */
+:root
+{
+    /* colors */
+    --body-bgcolor : #F5F7FB;
+    --container-bgcolor : #FFFFFF;
+    --follow-btn-bgcolor : #0F192F;
+
+    /* fonts */
+    --general-font : "Roboto", serif;
+}
+/* ANIMATIONS */
+
+@keyframes panelSlideIn
+{
+    0%
+    {
+        transform: translateX(300px);
+    }
+
+    100%
+    {
+        transform: translate(0);
+    }
+}
+
+@keyframes panelSlideBack
+{
+    0%
+    {
+        transform: translateX(0);
+    }
+
+    100%
+    {
+        transform: translate(300px);
+    }
+}
+
+@keyframes messageSlideIn
+{
+    0%
+    {
+        transform: translateX(-350px);
+    }
+
+    100%
+    {
+        transform: translate(0);
+    }
+}
+
+@keyframes messageSlideBack
+{
+    0%
+    {
+        transform: translateX(0);
+    }
+
+    100%
+    {
+        transform: translate(-350px);
+    }
+}
+
+
+.messageSlideIn
+{
+    animation: messageSlideIn 0.5s ease-in-out forwards;
+}
+
+.panelSlideIn
+{
+    animation: panelSlideIn 0.5s ease-in-out forwards;
+}
+
+.messageSlideBack
+{
+    animation: messageSlideBack 0.5s ease-in-out forwards;
+}
+
+.panelSlideBack
+{
+    animation: panelSlideBack 0.5s ease-in-out forwards;
+}
+
+/* HTML + BODY */
+html
+{
+    height: 100%;
+}
+
+body
+{
+    min-height: 100%;
+    width: 100%;
+    font-family: var(--general-font);
+    background-color: var(--body-bgcolor);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* STYLING */
+.profile
+{
+    --outside-shadow : rgba(0, 0, 0, 0.24);
+    --inset-shadow :rgba(128, 128, 128, 0.116) ;
+    background-color: var(--container-bgcolor);
+    width: 600px;
+    padding: 25px;
+    border-radius: .85rem;
+    box-shadow: 0px 0px 30px 0px  var(--outside-shadow), inset 0px 0px 10px 0px var(--inset-shadow);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.profile-header
+{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.profile__image
+{
+    --border-color : black;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 2px solid var(--border-color);
+
+    
+}
+
+.profile__image > img
+{
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+}
+
+.profile__setting
+{
+    display: flex;
+    gap: 4px;
+    cursor: pointer;
+}
+
+.dot
+{
+    --dot-color : black;
+    width: 6px;
+    height: 6px;
+    background-color: var(--dot-color);
+    border-radius: 50%;
+}
+
+.profile-body
+{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.profile__name
+{
+    display: flex;
+    flex-direction: column;
+}
+
+.profile__name > h2#name
+{
+    font-weight: 600;
+}
+
+.profile__name > h2#username
+{
+    color: #9C9DA1;
+    font-weight: 300;
+    font-size: 18px;
+}
+
+.profile__bio > p
+{
+    max-width: 55ch;
+    text-align: justify;
+}
+
+.profile__stats > ul
+{
+    display: flex;
+    gap: 30px;
+    padding-left: 25px;
+    color: #737374;
+
+}
+
+.profile-footer
+{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    gap: 18px;
+}
+
+.profile-footer > button
+{
+    --font-color : #FFFFFF;
+    width: 100px;
+    height: 30px;
+    border-radius: .55rem;
+    border: none;
+    background-color: var(--follow-btn-bgcolor);
+    font-weight: 500;
+    color: var(--font-color);
+    font-family: var(--general-font);
+    cursor: pointer;
+    transition: all ease-in-out 400ms;
+}
+
+.profile-footer > #followButton
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+
+.profile-footer > .notification-bell > g > g > path
+{
+    fill: #0F192F;
+    transition: all ease-in-out 400ms;
+}
+
+.profile-footer > .notification-bell.disable-bell > g > g > path
+{
+    fill: grey;
+}
+
+#unfollowToggle
+{
+    display: none;
+}
+
+
+
+.profile-footer > .active-followButton
+{
+    --bg-color : transparent;
+    --font-color : var(--follow-btn-bgcolor);
+    --border-color : var(--follow-btn-bgcolor);
+
+    background-color: var(--bg-color);
+    color: var(--font-color);
+    border: 2px solid var(--border-color);
+}
+
+.profile-footer > svg
+{
+    cursor: pointer;
+}
+
+.panel
+{
+    position: fixed;
+    right:0;
+    background-color: var(--body-bgcolor);
+    border-left: 2px solid #0F192F;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 300px;
+    transform: translateX(300px);
+    height: 100%;
+    padding: 16px ;
+}
+
+.panel > ul
+{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+    height: 100%;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.panel > .back
+{
+    width: 4px;
+    height: 35px;
+    border-radius: .75rem;
+    background-color: #0F192F;
+    position: absolute;
+    left: 10px;
+    bottom: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+}
+
+.panel > ul > li{
+    cursor: pointer;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #0F192F;
+}
+
+.messaging
+{
+    position: fixed;
+    left:0;
+    background-color: var(--body-bgcolor);
+    border-right: 2px solid #0F192F;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 300px;
+    height: 100%;
+    transform: translateX(-350px);
+
+    
+}
+
+
+.messaging > .header
+{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 16px ;
+    border-bottom: 2px solid #0F192F;
+
+}
+
+.messaging > .message
+{
+    width: 100%;
+    border-top: 2px solid #0F192F;
+    height: 50px;
+    gap: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 10px;
+}
+
+.message > input
+{
+    width: 70%;
+    height: 30px;
+    border-radius: 2rem;
+    border: 2px solid #0F192F;
+    padding: 10px;
+    font-family: var(--general-font);
+}
+
+.message > button
+{
+    width: 80px;
+    height: 30px;
+    border-radius: .55rem;
+    border: none;
+    background-color: var(--follow-btn-bgcolor);
+    font-weight: 500;
+    color: #FFFFFF;
+    font-family: var(--general-font);
+    cursor: pointer;
+    transition: all ease-in-out 400ms;
+}
+
+.close-message
+{
+    position: absolute;
+    background-color: #0F192F;
+    width: 20px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3px;
+    right: -30px;
+    bottom: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+}
+
+
+
+.close-message > .line
+{
+    width: 4px;
+    height: 80%;
+    background-color: #FFFFFF;
+}
+
+/* MEDIA QUERIES */
+@media (max-width:630px)
+{
+    body
+    {
+        padding: 10px;
+    }
+
+    .profile
+    {
+        width: 100%;
+    }
+}
