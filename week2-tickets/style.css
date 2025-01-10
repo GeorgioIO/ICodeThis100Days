@@ -78,6 +78,7 @@ body::before
 
 .container
 {
+    --after-display : none;
     width: 350px;
     height: auto;
     display: flex;
@@ -87,6 +88,7 @@ body::before
     box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.37);
     border-radius: .85rem;
     background-color: var(--container-bgcolor);
+    position: relative;
 }
 
 .container > .header
@@ -210,6 +212,7 @@ body::before
 .row > svg:hover
 {
     --seat-icon-color : #456574;
+    transform: scale(1.2);
 }
 
 .row > svg.bookedseat 
@@ -319,3 +322,65 @@ body::before
     box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.534);
     
 }
+
+
+.submit-message
+{
+    --bg-color : #E8F2EF;
+    --border-color : #000000;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--bg-color);
+    width: 300px;
+    height: 140px;
+    border-radius: .95rem;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    flex-direction: column;
+    border: 2px solid var(--border-color);
+    gap: 10px;
+    z-index: 100;
+    display: none;
+}
+
+.submit-message > div
+{
+    display: flex;
+    gap: 12px;
+}
+
+.container::after
+{
+    
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #000000d2;
+    border-radius: inherit;
+    display: var(--after-display);
+}
+
+.submit-message > div > button
+{
+    --outline : transparent;
+    --bg-color : #EC417A;
+    --font-color : #FFFFFF;
+    border-radius: .65rem;
+    font-size: 16px;
+    cursor: pointer;
+    font-family: var(--general-font);
+    border: none;
+    outline: 2px solid var(--outline);
+    transition: all ease-in 400ms;
+    background-color: var(--bg-color);
+    width: 100px;
+    height: 30px;
+    color: var(--font-color);
+}
+
+

@@ -1,6 +1,11 @@
 const seats = document.querySelectorAll(".row .availableseat");
 const playButton = document.querySelector("#playButton");
 const pullTicket = document.querySelector(".pull-ticket");
+const nextButton = document.querySelector(".footer-button");
+const submitPanel = document.querySelector(".submit-message");
+const container = document.querySelector(".container")
+const cancelSubmit = document.querySelector("#cancelSubmit");
+const submitButton = document.querySelector("#submitButton");
 let ticketCounter = 0;
 
 seats.forEach(seat => {
@@ -29,7 +34,34 @@ seats.forEach(seat => {
     })
 })
 
+nextButton.addEventListener("click" , (event) => {
+    let ticket = parseInt(document.querySelector("#ticketCounter").textContent);
+    const submitTicket = document.querySelector(".ticket");
+    const submitTotal = document.querySelector(".submit-total");
+    if(ticket == 0)
+    {
+        alert("Please choose a seat/s to buy");
+    }
+    else
+    {
+        submitTicket.textContent = document.querySelector("#ticketCounter").textContent;
+        submitTotal.textContent = document.querySelector("#TOTAL").textContent;
+        submitPanel.style.display = "flex";
+        container.style.setProperty("--after-display", "block")
+    }   
+});
 
+cancelSubmit.addEventListener("click" , (event) => {
+    submitPanel.style.display = "none";
+    container.style.setProperty("--after-display", "none");
+})
+
+submitButton.addEventListener("click" , (event) => {
+    submitPanel.textContent = "Thanks for your purchase!\nYou will receive an email soon with more information";
+    setTimeout(() => {
+        location.reload();
+    } , 1000)
+})
 
 let total = 0;
 function addPrice(seat)
