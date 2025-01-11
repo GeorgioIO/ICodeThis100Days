@@ -1,0 +1,137 @@
+/* FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Signika:wght@300..700&display=swap');
+
+
+/* GLOBAL RESET */
+*
+{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* ANIMATIONS */
+@keyframes snowfall {
+    0% {
+        transform: translateY(-100vh) translateX(0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(100vh) translateX(20px);
+        opacity: 0;
+    }
+}
+
+/* VARIABLES */
+:root
+{
+    /* COLORS */
+    --body-bgcolor : #EEF0F2;
+    --container-bgcolor : #FFFFFF;
+    --button-bgcolor : #232E4D;
+
+    /* FONTS */
+    --general-font : "Signika", serif;
+}
+
+/* HTML + BODY */
+html
+{
+    height: 100%;
+}
+
+body
+{
+    min-height: 100%;
+    width: 100%;
+    background-color: var(--body-bgcolor);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--general-font);
+    overflow: hidden;
+}
+
+.container
+{
+    background-color: var(--container-bgcolor);
+    width: 380px;
+    height: 380px;
+    box-shadow: 0px 0px 40px 0px rgba(0, 0, 0, 0.281);
+    border-top-right-radius: 0.95rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 10px;
+    position: relative;
+    z-index: 1;
+}
+
+.container > .image
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.container > p
+{
+    text-align: center;
+}
+
+.container > #gift
+{
+    color: rgb(153, 153, 19);
+}
+
+
+.container > button
+{
+    width: 180px;
+    height: 50px;
+    background-color: var(--button-bgcolor);
+    color: #FFFFFF;
+    text-transform: uppercase;
+    box-shadow: 0px 5px 8px 0px rgba(20, 20, 17, 0.21);
+    border-radius: .85rem;
+    font-family: var(--general-font);
+    cursor: pointer;
+    border: none;
+}
+
+#closeIcon
+{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+}
+
+.snowflake {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: white;
+    border-radius: 50%;
+    animation: snowfall linear infinite;
+}
+
+/* MEDIA QUERIES */
+
+@media (max-width : 400px)
+{
+    body
+    {
+        width: 100%;
+        padding: 15px;
+    }
+
+    .container
+    {
+        width: 100%;
+    }
+}
