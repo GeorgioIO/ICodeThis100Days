@@ -1,0 +1,227 @@
+/* FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/* GLOBAL RESET */
+*
+{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    transition: all ease-in-out 600ms;
+}
+
+/* VARIALBLES */
+:root
+{
+    --body-bgcolor : #DEEEFF;
+    --container-bgcolor : #FEFEFE;
+
+    /* FONTS */
+    --general-font : "Fira Sans", serif;
+}
+
+
+/* ANIMATIONS */
+#particles-js {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+/* HTML + BODY */
+html
+{
+    height: 100%;
+}
+
+body
+{
+    min-height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--body-bgcolor);
+    perspective: 2000px;
+}
+
+/* STLYING */
+
+.container
+{
+    width: 500px;
+    height: 550px;
+    background-color: var(--container-bgcolor);
+    border-radius: .75rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    font-family: var(--general-font);
+    padding: 10px;
+    box-shadow: 0px 0px 40px 0px rgba(0, 0, 0, 0.151);
+    transition: transform 0.1s ease-out, box-shadow 0.1s ease-out;
+    transform-style: preserve-3d;
+    position: relative;
+    z-index: 100;
+
+}
+
+
+#crossicon
+{
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    cursor: pointer;
+}
+
+.container > .header
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 12px;
+}
+
+.header > p
+{
+    max-width: 35ch;
+    font-size: 18px;
+}
+
+.container > .body
+{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.body > div
+{
+    --bgcolor : transparent;
+    --font-color : black;
+    background-color: var(--bgcolor);
+    color: var(--font-color);
+    width: 320px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 12px;
+    gap: 16px;
+    border-radius: .45rem;
+    cursor: pointer;
+    transition: all ease-in-out 600ms;
+    border: 1px solid grey;
+}
+
+/* google hover styling */
+.body > div#google:hover
+{
+    --bgcolor: green;
+}
+
+.body > div#google:hover svg path
+{
+    fill: #FFFFFF;
+}
+
+
+.body > div#google:hover p
+{
+    color: #FFFFFF;
+}
+
+/* facebook hover styling */
+.body > div#facebook:hover
+{
+    --bgcolor: #0000FF;
+}
+
+.body > div#facebook:hover svg path
+{
+    fill: #FFFFFF;
+}
+
+
+.body > div#facebook:hover p
+{
+    color: #FFFFFF;
+}
+
+/* github hover styling */
+.body > div#github:hover
+{
+    --bgcolor: rgb(41, 39, 39);
+}
+
+.body > div#github:hover svg path
+{
+    fill: #FFFFFF;
+}
+
+
+.body > div#github:hover p
+{
+    color: #FFFFFF;
+}
+
+.footer 
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+}
+
+.footer > .subscription
+{
+    display: flex;
+    gap: 12px;
+}
+
+.footer > button
+{
+    --bgcolor : transparent;
+    --fontcolor : lightblue;
+    width: 320px;
+    height: 45px;
+    background-color: var(--bgcolor);
+    color: var(--fontcolor);
+    border: none;
+    font-family: var(--general-font);
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: .75rem;
+
+}
+
+
+.footer > button:hover
+{
+    --bgcolor : blue;
+    --fontcolor : white;
+}
+
+/* MEDIA FRAMES */
+@media (max-width:560px)
+{
+    body
+    {
+        padding: 15px;
+    }
+
+    .container,
+    .body > div,
+    .footer > button
+    {
+        width: 100%;
+    }
+}
