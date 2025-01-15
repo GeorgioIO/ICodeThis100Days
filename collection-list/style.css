@@ -1,0 +1,244 @@
+/* FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap');
+
+
+/* GLOBAL RESET */
+*
+{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* VARIABLES */
+:root
+{
+    --body-bgcolor : #D6D9E1;
+    --container-bgcolor : #EEF0F2;
+    --collection-bgcolor : #FFFFFF;
+    --buttons-bgcolor : #FFFFFF;
+
+    --general-font : "Titillium Web", serif;
+}
+
+/* HTML + BODY */
+html
+{
+    height: 100%;
+}
+
+body
+{
+    min-height: 100%;
+    width: 100%;
+    background-color: var(--body-bgcolor);
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--general-font);
+}
+
+.container
+{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 20px;
+    border-radius: .95rem;
+    gap: 16px;
+    background-color: var(--container-bgcolor);
+}
+
+.container > div
+{
+    padding: 8px;
+}
+
+.switchers 
+{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.switchers > button
+{
+    width: 100px;
+    height: 40px;
+    border-radius: .55rem;
+    border: none;
+    cursor: pointer;
+    font-family: var(--general-font);
+    font-weight: 700;
+    box-shadow: 0px 3px 0px 0px black;
+    transition: all ease-in-out 500ms;
+    background-color: var(--buttons-bgcolor);
+}
+
+.switchers > button:hover
+{
+    transform: translateY(-2px);
+}
+
+.collection-container
+{
+    width: 100%;
+    display: flex;
+    flex-grow: 1;
+    flex-wrap: wrap;
+    gap: 35px;
+}
+
+.collection
+{
+    background-color: var(--collection-bgcolor);
+    display: grid;
+    flex-grow: 1;
+    grid-template-columns: repeat(3 , 1fr);
+    grid-template-rows: 350px 100px 0.7fr;
+    grid-template-areas: 
+    "big big big"
+    "s1 s2 s3"
+    "footer footer footer";
+    padding: 20px;
+    row-gap: 10px;
+    column-gap: 10px;
+    border-radius: .95rem;
+    cursor: pointer;
+}
+
+.big
+{
+    background-color: pink;
+    grid-area: big;
+    overflow: hidden;
+}
+
+
+.b1
+{
+    background: url("https://raw.githubusercontent.com/GeorgioIO/ICodeThisImages/refs/heads/main/people1.avif");
+    background-position: center;
+    background-size: cover;
+}
+
+.collection > div
+{
+    border-radius: .95rem;
+}
+
+.collection > div:not(.footer)
+{
+    background-position: center;
+    background-size: cover;
+}
+
+.c1 > .s1
+{
+    background: url("https://raw.githubusercontent.com/GeorgioIO/ICodeThisImages/refs/heads/main/people2.avif");
+}
+
+.c1 > .s2
+{
+    background: url("https://raw.githubusercontent.com/GeorgioIO/ICodeThisImages/refs/heads/main/people3.avif");
+}
+
+.c1 > .s3
+{
+    background: url("https://raw.githubusercontent.com/GeorgioIO/ICodeThisImages/refs/heads/main/people4.avif");
+}
+
+.s1
+{
+    grid-area: s1;
+    background-color: blueviolet;
+}
+
+.s2
+{
+    grid-area: s2;
+    background-color: brown;
+}
+
+.s3
+{
+    grid-area: s3;
+    background-color: green;
+}
+
+.b2
+{
+    background: url("https://raw.githubusercontent.com/GeorgioIO/ICodeThisImages/refs/heads/main/nature1.avif");
+}
+
+.c2 > .s1
+{
+    background: url("https://raw.githubusercontent.com/GeorgioIO/ICodeThisImages/refs/heads/main/nature2.avif");
+}
+
+.c2 > .s2
+{
+    background: url("https://raw.githubusercontent.com/GeorgioIO/ICodeThisImages/refs/heads/main/nature3.avif");
+}
+
+.c2 > .s3
+{
+    background: url("https://raw.githubusercontent.com/GeorgioIO/ICodeThisImages/refs/heads/main/nature4.avif");
+}
+
+.b3
+{
+    background: url("https://raw.githubusercontent.com/GeorgioIO/ICodeThisImages/refs/heads/main/history1.avif");
+}
+
+.c3 > .s1
+{
+    background: url("https://raw.githubusercontent.com/GeorgioIO/ICodeThisImages/refs/heads/main/history2.avif");
+}
+
+.c3 > .s2
+{
+    background: url("https://raw.githubusercontent.com/GeorgioIO/ICodeThisImages/refs/heads/main/history3.avif");
+}
+
+.c3 > .s3
+{
+    background: url("https://raw.githubusercontent.com/GeorgioIO/ICodeThisImages/refs/heads/main/history4.avif");
+}
+
+.footer
+{
+    grid-area: footer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer > div
+{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* MEDIA QUERIES */
+
+@media (max-width:1000px)
+{
+    .collection-container
+    {
+        gap: 15px;
+    }
+}
+
+@media (max-width:830px)
+{
+    .collection-container
+    {
+        flex-direction: column;
+    }
+}
