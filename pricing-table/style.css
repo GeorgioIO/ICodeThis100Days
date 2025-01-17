@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Overpass:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* GLOBAL RESET */
+*
+{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* VARIABLES */
+:root
+{
+    /* fonts */
+    --general-font : "Overpass", serif ;
+    --titles-font : "Merriweather", serif;
+
+    /* colors */
+    --body-bgcolor : #F5F8FF;
+    --container-bgcolor : #FAFAFE;
+
+    --border-color : #FFFFFF;
+}
+
+/* HTML + BODY */
+html
+{
+    height: 100%;
+}
+
+body
+{
+    min-height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--body-bgcolor);
+    font-family: var(--general-font);
+    padding: 10px;
+}
+
+/* STYLING */
+
+.container
+{
+    background-color: var(--container-bgcolor);
+    border-radius: .85rem;
+    border: 15px solid var(--border-color);
+    width: auto;
+    height: auto;
+    display: flex;
+    padding: 20px;
+    gap: 20px;
+}
+
+.plan
+{
+    --shadow : rgb(80, 37, 37);
+    height: 330px;
+    width: 270px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    box-shadow: 5px 5px 0px 0px var(--shadow);
+    padding: 10px;
+    transition: all ease-in-out 400ms;
+    border-radius: .35rem;
+}
+
+#free:hover
+{
+    --shadow : #EDBAFF;
+}
+
+#standard:hover
+{
+    --shadow : #AEF0F2;
+}
+
+#premium:hover
+{
+    --shadow : #FDDCB9;
+}
+.plan > .title
+{
+    font-size: 26px;
+    font-family: var(--titles-font);
+}
+
+.plan > div > .price
+{
+    font-size: 42px;
+    font-weight: 900;
+}
+
+.price > span
+{
+    font-size: 22px;
+}
+
+.plan > .description
+{
+    font-weight: 600;
+    max-width: 25ch;
+}
+
+.plan > button
+{
+    --bgcolor : red;
+    width: 120px;
+    height: 40px;
+    padding: 0px 12px 0px 12px;
+    font-family: var(--general-font);
+    background-color: var(--bgcolor);
+    border-radius: .85rem;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+
+.container > .plan#free > button
+{
+    --bgcolor : #EDBAFF;
+}
+
+.container > .plan#standard > button
+{
+    --bgcolor : #AEF0F2;
+}
+
+.container > .plan#premium > button
+{
+    --bgcolor : #FDDCB9;
+}
+
+/* MEDIA QUERIES */
+
+@media (max-width:1000px)
+{
+    .container,
+    .plan
+    {
+        width: 100%;
+    }
+}
+
+@media (max-width:740px)
+{
+    .container
+    {
+        flex-direction: column;
+    }
+}
