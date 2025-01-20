@@ -1,0 +1,121 @@
+/* FONTS */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+
+/* GLOBAL RESET */
+*
+{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* VARIABLES */
+:root
+{
+    --body-bgcolor : #EDF5FE;
+
+    --general-font : "DM Sans", serif;
+}
+
+/* HTML + BODY */
+html
+{
+    height: 100%;
+}
+
+body
+{
+    min-height: 100%;
+    width: 100%;
+    background-color: var(--body-bgcolor);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--general-font);
+}
+
+/* STYLING */
+
+.container
+{
+    width: 1000px;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    gap: 35px;
+    background-color: #FFFFFF;
+    padding: 40px;
+    border-radius: .85rem;
+    box-shadow: 0px 0px 20px 0px rgba(211, 211, 211, 0.822);
+    overflow: hidden;
+}
+
+.values
+{
+    width: 100%;
+    display: flex;
+    gap: 22px;
+    justify-content: space-between;
+}
+
+.value
+{
+
+    width: 300px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: .75rem;
+    transition: all ease-in-out 400ms ;
+}
+
+.value:hover
+{
+    background-color: rgb(63, 63, 230);
+    color: #FFFFFF;
+
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.425);
+
+}
+
+#chart
+{
+    width: 100% !important;
+}
+
+.value > p
+{
+    gap: 10px;
+    font-size: 14px;
+}
+
+.value > p:not(.title)
+{
+    font-size: 20px;
+}
+
+/* MEDIA QUERIES */
+@media (max-width:1040px)
+{
+    body 
+    {
+        padding: 10px;
+    }
+
+    .container
+    {
+        width: 100%;
+    }
+}
+
+@media (max-width:670px)
+{
+    .values
+    {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
