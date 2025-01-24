@@ -1,0 +1,321 @@
+/* FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+/* GLOBAL RESET */
+*
+{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* VARIABLES */
+:root
+{
+    --body-bgcolor : #F6F8FC;
+    --category-bgcolor : #FFFFFF;
+
+    --general-font : "Inter", serif;
+}
+
+/* HTML + BODY */
+html
+{
+    height: 100%;
+}
+
+body
+{
+    width: 100%;
+    background-color: var(--body-bgcolor);
+    min-height: 100%;
+    font-family: var(--general-font);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+/* ANIMATION */
+@keyframes slideDown
+{
+    0%
+    {
+        transform: translateY(-40px);
+    }
+
+    100%
+    {
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideUp
+{
+    0%
+    {
+        transform: translateY(0);
+    }
+
+    100%
+    {
+        transform: translateY(-40px);
+    }
+}
+
+.slideDown
+{
+    animation: slideDown 500ms ease-in-out forwards;
+}
+
+.slideUp
+{
+    animation: slideUp 500ms ease-in-out forwards;
+}
+
+/* STYLING */
+.container
+{
+    width: 1090px;
+    gap: 20px;
+    display: grid;
+    grid-template-columns: repeat(10 , 1fr);
+    grid-template-rows: repeat(2 , 1fr);
+}
+
+.container > .card
+{
+    border-radius: .65rem;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    transition: all ease-in-out 400ms;
+    cursor: pointer;
+    box-shadow: 5px 5px 0px 0px black;
+    position: relative;
+    overflow: hidden;
+}
+
+#tourismCard
+{
+    grid-column: 4 / 8;
+    grid-row: 1 / 2;
+    width: 100%;
+    height: 100%;
+}
+
+#growthCard
+{
+    grid-column: 2 / 7;
+    grid-row: 2 / 3;
+    width: 100%;
+    height: 100%;
+}
+
+#technologyCard
+{
+    grid-column: 7 / 10;
+    grid-row: 2 / 3;
+    width: 100%;
+    height: 100%;
+}
+
+
+.card > span
+{
+    position: absolute;
+    align-self: center;
+    background-color: var(--category-bgcolor);
+    z-index: 100;
+    width: 80px;
+    padding: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    border-bottom-right-radius: .55rem;
+    border-bottom-left-radius: .55rem;
+    transform: translateY(-40px);
+}
+
+.card > span > a
+{
+    font-weight: 700;
+    color: #FFFFFF;
+    text-decoration: none;
+    
+}
+
+.card:hover
+{
+    transform: scale(1.01);
+}
+
+.card > .image
+{
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+    border-top-right-radius: inherit;
+    border-top-left-radius: inherit;
+    cursor: pointer;
+}
+
+.image > img
+{
+    width: 100%;
+    height: 100%;
+    transition: all ease-in-out 300ms;
+
+}
+
+.image:hover > img
+{
+    transform: scale(1.2);
+}
+
+.card > .body
+{
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.body > .category
+{
+    text-transform: uppercase;
+    background-color: var(--category-bgcolor);
+    width: auto;
+    padding: 5px 8px 5px 8px;
+    border-radius: 0.85rem;
+    color: #FFFFFF;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+#tourism,
+#tourismButton
+{
+    --category-bgcolor :rgb(230, 230, 59) ;
+}
+
+#growth,
+#growthButton
+{
+    --category-bgcolor :skyblue;
+}
+
+#technology,
+#technologyButton
+{
+    --category-bgcolor :purple;
+}
+
+.body > .title
+{
+    font-size: 20px;
+    max-width: 40ch;
+    line-height: 1.55rem;
+}
+
+.body > .description
+{
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.25rem;
+    text-wrap: balance;
+}
+
+.writer
+{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 0px 20px 20px 20px;
+}
+
+.writer > img
+{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: red;
+}
+
+.writer > .information
+{
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+/* MEDIA QUERIES */
+@media (max-width : 1130px)
+{
+    body
+    {
+        padding: 10px;
+        
+    }
+    .container
+    {
+        width: 100%;
+    }
+}
+
+@media (max-width : 810px)
+{
+    .container
+    {
+        width: 100%;
+        grid-template-columns: 100% !important;
+        grid-template-rows: repeat(3 , 1fr);
+    }
+
+    #tourismCard
+    {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    #growthCard
+    {
+        grid-column:1;
+        grid-row: 2;
+    }
+
+    #technologyCard
+    {
+        grid-column:1;
+        grid-row: 3;
+    }
+}
+
+@media (max-width : 930px)
+{
+
+    .container
+    {
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .container > .card
+    {
+        width: 450px;
+    }
+}
+
+@media (max-width : 500px)
+{
+
+
+
+    .container > .card
+    {
+        width: 100%;
+    }
+}
