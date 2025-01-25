@@ -1,0 +1,180 @@
+/* FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+/* GLOBAL RESET */
+*
+{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* VARIABLES */
+:root
+{
+    --general-font :  "Noto Sans", serif;
+}
+
+/* HTML + BODY */
+html
+{
+    height: 100%;
+}
+
+
+
+body
+{
+    min-height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    font-family: var(--general-font);
+}
+
+/* STYLING */
+.container
+{
+    display: flex;
+    width: 1300px;
+    height: auto;
+    border-radius: 1rem;
+    box-shadow: 0px 0px 20px 0px rgba(54, 54, 54, 0.288);
+}
+
+.container > .image
+{
+    width: 40%;
+    min-height: 100%;
+}
+
+img
+{
+    width: 100%;
+    height: 100%;
+    display: block;
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+}
+
+.container > .post
+{
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 40px;
+    gap: 10px;
+}
+
+.post > .header
+{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header > svg
+{
+    cursor: pointer;
+}
+
+.header > .title > h1
+{
+    font-size: 34px;
+    line-height: 3rem;
+    max-width: 30ch;
+    color: #427EAE;
+}
+
+.post > .description
+{
+    color: #B4B6BA;
+    font-weight: 400;
+    max-width: 70ch;
+    text-wrap: balance;
+    text-align: justify;
+}
+
+.blog-para
+{
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: 300px;
+    overflow-y: scroll;
+    scrollbar-width: none; 
+    -ms-overflow-style: none; 
+}
+  
+.blog-para::-webkit-scrollbar 
+{
+    display: none;
+  }
+
+.blog-para > .section >  p
+{
+    font-size: 18px;
+    line-height: 1.75rem;
+}
+
+
+/* MEDIA QUERIES */
+@media (max-width: 970px) 
+{
+    .container > .image
+    {
+        width: 50%;
+    }    
+}
+
+@media (max-width: 970px) 
+{
+    .container 
+    {
+        flex-direction: column;
+    }    
+
+    .container > .image 
+    {
+        width: 100%;
+    }    
+
+    .container > .post
+    {
+        width: 100%;
+    }
+
+    .container > .image > img
+    {
+        border-bottom-left-radius: 0px;
+        border-top-right-radius: 1rem;
+    }
+
+    .header > .title > h1
+    {
+        font-size: 28px;
+        line-height: initial;
+    }
+
+}
+
+@media (max-width : 600px)
+{
+    .container
+    {
+        position: relative;
+    }
+
+    .header > svg
+    {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+    }
+}
