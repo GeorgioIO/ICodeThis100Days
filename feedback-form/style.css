@@ -1,0 +1,132 @@
+/* FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+/* GLOBAL RESET */
+*
+{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* VARIABLES */
+:root
+{
+    --body-bgcolor-one : white;
+    --body-bgcolor-two : #0091E9;
+    --title-fontcolor : #0091E9;
+
+    --general-font : "Outfit", serif;
+}
+
+
+/* HTML + BODY */
+html
+{
+    height: 100%;
+}
+
+body
+{
+    min-height: 100%;
+    width: 100%;
+    background: linear-gradient(to right , var(--body-bgcolor-one) , var(--body-bgcolor-two));
+    font-family: var(--general-font);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* STYLING */
+form
+{
+    background-color: #EEF1F7;
+    width: 350px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.397);
+    border-radius: .45rem;
+}
+
+form > .header
+{
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+form > .header > h2
+{
+    color: var(--title-fontcolor);
+    font-weight: 700;
+    font-size: 26px;
+}
+
+form > textarea
+{
+    width: 100%;
+    height: 150px;
+    padding: 20px;
+    font-size: 18px;
+    resize: none;
+    border: none;
+}
+
+form > textarea:focus
+{
+    outline: none;
+}
+
+form > .radios
+{
+    padding: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.radios > .radio{
+    display: flex;
+    gap: 8px;
+    font-size: 20px;
+}
+
+.radio > label
+{
+    color: #98A0A9;
+}
+
+form > .button-container
+{
+    padding: 20px;
+}
+
+form > .button-container > button
+{
+    --bg-color : #0091E9;
+    width: 100%;
+    background-color: var(--bg-color);
+    height: 50px;
+    font-family: var(--general-font);
+    color: #FFFFFF;
+    font-size: 18px;
+    border: none;
+    border-radius: .3rem;
+    cursor: pointer;
+}
+/* MEDIA QUERIES */
+@media (max-width : 355px)
+{
+    body
+    {
+        padding: 10px;
+    }
+
+    form
+    {
+        width: 100%;
+    }
+}
