@@ -1,0 +1,243 @@
+/* FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* GLOBAL RESET */
+*
+{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+/* GENERAL STYLES */
+ul
+{
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+button,
+.watch{
+    cursor: pointer;
+}
+
+.workers > div
+{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.workers > div > p,
+.workers > div > ul > li
+{
+    color: rgb(32, 86, 136);
+    font-weight: 500;
+}
+
+
+/* HTML + BODY */
+html
+{
+    height: 100%;
+}
+
+body
+{
+    min-height: 100%;
+    width: 100%;
+    background-color: #F4F6FA;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    font-family: "Roboto Condensed", serif;
+}
+
+/* STYLING */
+.container
+{
+    background-color: #FFFFFF;
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 900px;
+    height: auto;
+    border-radius: .75rem;
+    box-shadow: 0px 0px 20px 0px rgba(82, 75, 75, 0.281);
+}
+
+.header
+{
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.header > div
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.body
+{
+    display: grid;
+    grid-template-columns: 230px 2fr;
+    grid-template-rows: auto auto;
+    grid-template-areas: 
+    "poster description"
+    "poster workers" ;
+    gap: 30px;
+}
+
+.body > .poster
+{
+    grid-area: poster;
+}
+
+.poster > img
+{
+    width: 100%;
+    height: 100%;
+}
+
+.body > .description
+{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.body > .description > p
+{
+    line-height: 1.5rem;
+    text-align: justify;
+}
+
+.workers
+{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 100px 100px;
+    grid-template-areas: 
+    "actors directors producers"
+    "actors screenwriter .";
+}
+
+#actors
+{
+    grid-area: actors;
+}
+
+
+
+#director
+{
+    grid-area: directors;
+}
+
+#screenwriter
+{
+    grid-area: screenwriter;
+}
+
+.footer
+{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.footer > div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 230px;
+}
+
+.footer > div > .price
+{
+    font-weight: 900;
+}
+
+.footer > div > button
+{
+    width: 100px;
+    height: 30px;
+    border-radius: .45rem;
+    border: 2px solid black;
+
+    background-color: white;
+    font-weight: 700;
+}
+
+.footer > .watch
+{
+    width: 150px;
+    height: 40px;
+    color: #FFFFFF;
+    font-weight: 500;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: .75rem;
+}
+
+
+@media (max-width : 750px)
+{
+
+
+    .workers
+    {
+        grid-template-columns: 1fr 1fr ;
+        grid-template-rows: 1fr 1fr;
+        grid-template-areas: 
+        "actors directors" 
+        "producers screenwriter";
+        gap: 10px;
+    }
+}
+
+@media (max-width : 680px)
+{
+    .body
+    {
+        grid-template-columns: 100%;
+        grid-template-rows: auto 2fr  auto;
+        grid-template-areas: 
+        "poster"
+        "description"
+        "workers";
+    }
+    .workers
+    {
+        grid-template-columns: 1fr 1fr ;
+        grid-template-rows: 1fr 1fr;
+        grid-template-areas: 
+        "actors directors" 
+        "producers screenwriter";
+        gap: 10px;
+    }
+}
+
+@media (max-width : 550px)
+{
+    .container
+    {
+        padding: 20px;
+    }
+
+    .footer
+    {
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+}
